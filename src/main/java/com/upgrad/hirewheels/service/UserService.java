@@ -1,9 +1,10 @@
 package com.upgrad.hirewheels.service;
 
 
-import com.upgrad.hirewheels.dto.usersDTO;
+import com.upgrad.hirewheels.dto.UsersDTO;
+import com.upgrad.hirewheels.entities.User;
 
 
 public interface UserService{
-    users createUser(usersDTO users) throws Exception;
+    User createUser(UsersDTO users) throws Exception;
 }

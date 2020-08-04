@@ -3,7 +3,7 @@ package com.upgrad.hirewheels.dto;
 import lombok.Data;
 
 @Data
-public class usersDTO {
+public class UsersDTO {
     String firstName;
     String lastName;
     String email;

@@ -1,10 +1,11 @@
 package com.upgrad.hirewheels.service;
 
 
-import com.upgrad.hirewheels.dao.*;
-import com.upgrad.hirewheels.dto.usersDTO;
+import com.upgrad.hirewheels.dao.UserDAO;
+import com.upgrad.hirewheels.dao.UserRoleDAO;
+import com.upgrad.hirewheels.dto.UsersDTO;
+import com.upgrad.hirewheels.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 
@@ -13,35 +14,31 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Qualifier("usersDAO")
     @Autowired
-    usersDAO usersDAO;
+    UserDAO userDAO;
 
-
-    @Qualifier("roleDAO")
     @Autowired
-    roleDAO roleDAO;
+    UserRoleDAO userRoleDAO;
 
     @Override
-    public users createUser(usersDTO usersDTO) throws Exception {
-            users returnedUser = usersDAO.findByEmail(usersDTO.getEmail());
-                if ( returnedUser != null) {
-                    throw new Exception("Email Already Exists");
-                }
-            users returnedUser1 = usersDAO.findByMobileNo(usersDTO.getMobileNo());
-            if (returnedUser1 != null) {
-                throw new Exception("Mobile Number Already Exists");
-                }
-            users user = new users();
-            user.setWallet_money(10000);
-            user.setRole(roleDAO.findByrole_id(2));
-            user.setEmail(usersDTO.getEmail());
-            user.setPassword(usersDTO.getPassword());
-            user.setFirst_name(usersDTO.getFirstName());
-            user.setLast_name(usersDTO.getLastName());
-            user.setMobile_no(usersDTO.getMobileNo());
-            users savedUser = usersDAO.save(user);
-            return savedUser;
+    public User createUser(UsersDTO userDTO) throws Exception {
+        User User1 = userDAO.findByEmail(userDTO.getEmail());
+        if ( User1 != null) {
+            throw new Exception("Email Already Exists");
+        }
+        User User2 = userDAO.findByMobileNo(userDTO.getMobileNo());
+        if (User2 != null) {
+            throw new Exception("Mobile Number Already Exists");
+        }
+        User user = new User();
+        user.setWalletMoney(10000);
+        user.setUserRole(userRoleDAO.findByRoleId(2)); 
+        user.setEmail(userDTO.getEmail());
+        user.setPassword(userDTO.getPassword());
+        user.setFirstName(userDTO.getFirstName());
+        user.setLastName(userDTO.getLastName());
+        user.setMobileNo(userDTO.getMobileNo());
+        return userDAO.save(user);
     }
 
 }
