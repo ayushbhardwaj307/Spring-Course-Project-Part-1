@@ -15,7 +15,7 @@ public class VehicleSubCategory {
     @Column( nullable = false)
     int pricePerHour;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "vehicleSubCategory", cascade = CascadeType.ALL)
-    List<Vehicle> vehicles;
+    List<Vehicle> vehicle;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vehicleCategoryId")
     VehicleCategory vehicleCategory;

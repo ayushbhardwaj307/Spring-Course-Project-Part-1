@@ -10,8 +10,8 @@ import java.util.List;
 @Table(name="Vehicle")
 public class Vehicle {
    @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-           int vehicleId;
+   @GeneratedValue
+   int vehicleId;
    @Column(nullable = false)
    String vehicleModel;
    @Column(nullable = false, unique = true)

@@ -9,6 +9,7 @@ public class UsersDTO {
     String email;
     String password;
     String mobileNo;
+    double walletMoney;
 
     public String getEmail() {
         return email;

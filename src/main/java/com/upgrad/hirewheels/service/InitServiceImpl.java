@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Service("InitService")
 public class InitServiceImpl implements InitService {
 
     @Autowired
@@ -78,44 +78,52 @@ public class InitServiceImpl implements InitService {
     }
 
     private void addvehicle_subcategory() {
-        List<VehicleSubCategory> vehicleSubCategories = new ArrayList<>();
         VehicleSubCategory vehicleSubCategory1 = new VehicleSubCategory();
         vehicleSubCategory1.setVehicleSubCategoryId(1);
         vehicleSubCategory1.setVehicleSubCategoryName("SUV");
         vehicleSubCategory1.setPricePerHour(300);
         vehicleSubCategory1.setVehicleCategory(vehicleCategoryDAO.findByVehicleCategoryId(10));
-        vehicleSubCategories.add(vehicleSubCategory1);
+        vehicleSubCategoryDAO.save(vehicleSubCategory1);
+
+
         VehicleSubCategory vehicleSubCategory2 = new VehicleSubCategory();
         vehicleSubCategory2.setVehicleSubCategoryId(2);
         vehicleSubCategory2.setVehicleSubCategoryName("SEDAN");
         vehicleSubCategory2.setPricePerHour(350);
         vehicleSubCategory2.setVehicleCategory(vehicleCategoryDAO.findByVehicleCategoryId(10));
-        vehicleSubCategories.add(vehicleSubCategory2);
+        vehicleSubCategoryDAO.save(vehicleSubCategory2);
+
+
         VehicleSubCategory vehicleSubCategory3 = new VehicleSubCategory();
         vehicleSubCategory3.setVehicleSubCategoryId(3);
         vehicleSubCategory3.setVehicleSubCategoryName("HATCHBACK");
         vehicleSubCategory3.setPricePerHour(250);
         vehicleSubCategory3.setVehicleCategory(vehicleCategoryDAO.findByVehicleCategoryId(10));
-        vehicleSubCategories.add(vehicleSubCategory3);
+        vehicleSubCategoryDAO.save(vehicleSubCategory3);
+
+
         VehicleSubCategory vehicleSubCategory4 = new VehicleSubCategory();
         vehicleSubCategory4.setVehicleSubCategoryId(4);
         vehicleSubCategory4.setVehicleSubCategoryName("CRUISER");
         vehicleSubCategory4.setPricePerHour(200);
         vehicleSubCategory4.setVehicleCategory(vehicleCategoryDAO.findByVehicleCategoryId(11));
-        vehicleSubCategories.add(vehicleSubCategory4);
+        vehicleSubCategoryDAO.save(vehicleSubCategory4);
+
+
         VehicleSubCategory vehicleSubCategory5 = new VehicleSubCategory();
         vehicleSubCategory5.setVehicleSubCategoryId(5);
         vehicleSubCategory5.setVehicleSubCategoryName("DIRT BIKE");
         vehicleSubCategory5.setPricePerHour(200);
         vehicleSubCategory5.setVehicleCategory(vehicleCategoryDAO.findByVehicleCategoryId(11));
-        vehicleSubCategories.add(vehicleSubCategory5);
+        vehicleSubCategoryDAO.save(vehicleSubCategory5);
+
+
         VehicleSubCategory vehicleSubCategory6 = new VehicleSubCategory();
         vehicleSubCategory6.setVehicleSubCategoryId(6);
         vehicleSubCategory6.setVehicleSubCategoryName("SPORTS BIKE");
         vehicleSubCategory6.setPricePerHour(150);
         vehicleSubCategory6.setVehicleCategory(vehicleCategoryDAO.findByVehicleCategoryId(11));
-        vehicleSubCategories.add(vehicleSubCategory6);
-        vehicleSubCategoryDAO.saveAll(vehicleSubCategories);
+        vehicleSubCategoryDAO.save(vehicleSubCategory6);
     }
 
     private void addcity() {
