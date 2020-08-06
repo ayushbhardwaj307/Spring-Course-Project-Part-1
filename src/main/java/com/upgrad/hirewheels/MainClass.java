@@ -14,17 +14,22 @@ import java.util.List;
 public class MainClass {
     public static void main(String[] args) throws Exception {
         ApplicationContext context =new FileSystemXmlApplicationContext("src/main/resources/Beans.xml");
-        InitService InitService = (InitService) context.getBean("InitService");
-        InitService.start();
-        UserService userService = (UserService) context.getBean("UserService");
-        UsersDTO usersDTO = new UsersDTO();
-        usersDTO.setEmail("upgrad@gmail.com");
-        usersDTO.setFirstName("Admin");
-        usersDTO.setLastName("Admin");
-        usersDTO.setMobileNo("9999999999");
-        usersDTO.setPassword("admin@123");
-        usersDTO.setWalletMoney(10000);
-        userService.createUser(usersDTO);
+        /**
+         * Checking checkpoint 4.6
+         */
+//        InitService InitService = (InitService) context.getBean("InitService");
+//        InitService.start();
+//        UserService userService = (UserService) context.getBean("UserService");
+//        UsersDTO usersDTO = new UsersDTO();
+//        usersDTO.setEmail("upgrad@gmail.com");
+//        usersDTO.setFirstName("Admin");
+//        usersDTO.setLastName("Admin");
+//        usersDTO.setMobileNo("9999999999");
+//        usersDTO.setPassword("admin@123");
+//        usersDTO.setWalletMoney(10000);
+//        userService.createUser(usersDTO);
+
+
         System.out.println("Complete");
 
     }
